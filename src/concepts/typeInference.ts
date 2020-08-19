@@ -71,3 +71,17 @@ function area(s: Shape) {
 }
 
 // When type inference does not work
+const nameAndAge = ["bob", 5]
+// TS2339: Property 'toUpperCase' does not exist on type 'string | number'.
+// Property 'toUpperCase' does not exist on type 'number'.
+nameAndAge[0].toUpperCase();
+
+// Specify the type
+const nameAndAgeFixed: [string, number] = ["bob", 5];
+// const nameAndAgeFixed: [name: string, age: number] = ["bob", 5];
+// TS2339: Property 'toUpperCase' does not exist on type 'string | number'.
+// Property 'toUpperCase' does not exist on type 'number'.
+nameAndAgeFixed[0].toUpperCase();
+
+// Use type cast
+(nameAndAge[0] as string).toUpperCase();

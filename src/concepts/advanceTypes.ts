@@ -15,11 +15,11 @@ const pricePointProps: PricePointProps = {
 
 // AlternativeTypes
 type Result =
-  | { success: true; response: string }
-  | { success: false; error: string };
+    | { success: true; response: string }
+    | { success: false; error: string };
 
-const result1: Result = { success: true, response: 'DOT' };
-const result2: Result = { success: false, error: 'Error text' };
+const result1: Result = {success: true, response: 'DOT'};
+const result2: Result = {success: false, error: 'Error text'};
 
 function processResult(result: Result) {
   if (result.success) {
@@ -32,3 +32,7 @@ function processResult(result: Result) {
 processResult(result1); // Success with response DOT
 processResult(result2); // Failed with error: Error text
 
+const obj = {};
+// Why it can not work?
+// TS2339: Property 'name' does not exist on type '{}'.
+obj.name = "Derui";

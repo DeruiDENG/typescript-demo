@@ -85,3 +85,4 @@ nameAndAgeFixed[0].toUpperCase();
 
 // Use type cast
 (nameAndAge[0] as string).toUpperCase();
+

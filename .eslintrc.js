@@ -1,0 +1,61 @@
+module.exports = {
+  env: {
+    browser: true,
+    es6: true,
+    jest: true,
+    node: true,
+  },
+  extends: [
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "plugin:react/recommended",
+  ],
+  globals: {
+    Atomics: "readonly",
+    SharedArrayBuffer: "readonly",
+  },
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2018,
+    sourceType: "module",
+  },
+  plugins: ["react", "@typescript-eslint/eslint-plugin"],
+  rules: {
+    // "react/prop-types": false,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/explicit-member-accessibility": 0,
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      {
+        functions: false,
+        classes: true,
+      },
+    ],
+    "react/display-name": 0,
+  },
+  parser: "@typescript-eslint/parser",
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
+  overrides: [
+    {
+      // Disable the rule to enforce module-boundary type checking for JS/JSX files
+      files: ['*.js', '*.jsx'],
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+      },
+    },
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        // TS do not need prop-types
+        'react/prop-types': 'off',
+      },
+    },
+  ],
+};
